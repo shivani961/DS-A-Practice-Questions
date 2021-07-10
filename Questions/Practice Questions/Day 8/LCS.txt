@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+string longestCommonsuffix(vector<string> &str) {
+	if(str.empty()) return " ";
+	string ans=str[0];
+	for(auto i=1; i<str.size(); i++) {
+		string s=str[i];
+		for(auto j=0; j<ans.length(); j++) {
+			if(j<s.length() && ans[j]==s[j])
+				continue;
+			else
+				ans=ans.substr(0,j);
+		} }
+	return ans;
+}
+int main() {
+	int k,i;
+	string s;
+	cin>>k;
+	vector<string> str;
+	for(i=0; i<k; i++) {
+		cin>>s;
+		str.push_back(s);
+	}
+	string st=longestCommonsuffix(str);
+	cout<<st<<endl;
+	return 0;
+}
